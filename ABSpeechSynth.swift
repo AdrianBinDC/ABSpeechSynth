@@ -44,8 +44,7 @@ class ABSpeechSynth: NSObject {
   
   func speak(_ phrase: String) {
     
-    let speechQueue = DispatchQueue(label: "speak", qos: .userInteractive, attributes: [], autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: nil)
-    speechQueue.sync {
+    DispatchQueue.main.sync {
       do {
         try audioSession.setCategory(AVAudioSessionCategoryAmbient)
       } catch {
